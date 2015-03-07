@@ -4,26 +4,16 @@ describe('一覧ページ', ()=> {
   });
 
   describe('新規登録', ()=> {
-    it('新規登録ボタンが表示されること', (done)=> {
+    it('新規登録ボタンが表示されること', ()=> {
       var createButton = element(by.css('h2 .btn-warning'));
-      browser.wait(()=>{
-        return createButton.isPresent();
-      }, 10000).then(()=>{
-        expect(createButton.getText()).toBe("新規登録")
-        done();
-      });
+      expect(createButton.getText()).toBe("新規登録")
     });
   });
 
   describe('一覧', ()=> {
     var firstBean;
-    beforeEach(function(done) {
+    beforeEach(function() {
       firstBean = element(by.repeater('bean in list.beans').row(0));
-      browser.wait(()=>{
-        return firstBean.isPresent();
-      }, 10000).then(()=>{
-        done();
-      });
     });
 
     it('一覧のデータが表示されること', ()=> {

@@ -1,13 +1,13 @@
-import { BEANS_URL, REGIONS_URL } from 'app/urls';
-
 export default class EditController {
-  constructor($state, $stateParams, $http) {
+  constructor($state, $stateParams, beansService, regionsService) {
+    this.state = $state
+    this.beansService = beansService
     this.regions = []
-    $http.get(REGIONS_URL)
+    regionsService.list()
       .success((data) => {
         this.regions = data
 
-        $http.get(`${BEANS_URL}/${$stateParams.id}`)
+        beansService.get($stateParams.id)
           .success((data) => {
             data.importDate = data.importDate && new Date(data.importDate)
             this.bean = data
@@ -15,12 +15,7 @@ export default class EditController {
       });
   }
 
-  update() {
-    $http.put(`${BEANS_URL}/${$stateParams.id}`, {
-      brand: this.bean.brand,
-      amount: this.bean.amount,
-      importDate: this.bean.importDate && this.bean.importDate.toISOString(),
-      region: this.bean.region
-    }).success(() => $state.go('app.root.list'))
+  update(id) {
+    this.beansService.put(id, this.bean).success(() => this.state.go('app.root.list'))
   }
 }

@@ -1,17 +1,14 @@
-import { BEANS_URL, REGIONS_URL } from 'app/urls';
-
 export default class ListController {
-  constructor($http) {
-    $http.get(BEANS_URL)
-      .success((data) => this.beans = data)
-    $http.get(REGIONS_URL)
-      .success((data) => this.regions = data)
+  constructor(beansService, regionsService) {
+    this.beansService = beansService
+    beansService.list().success((data) => this.beans = data)
+    regionsService.list().success((data) => this.regions = data)
   }
 
   delete(id) {
-    $http.delete(`${BEANS_URL}/${id}`)
+    this.beansService.delete(id)
       .success(() => {
-        $http.get(BEANS_URL)
+        this.beansService.list()
           .success((data) => this.beans = data)
       })
   }

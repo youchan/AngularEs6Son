@@ -1,9 +1,6 @@
-import { REGIONS_URL } from 'app/urls';
-
-export default ($http) => {
+export default (regionsService) => {
   var region = [];
-  $http.get(REGIONS_URL)
-    .success((data) => region = data)
+  regionsService.list().success((data) => region = data)
   return (input) => {
     var ret = ''
     angular.forEach(region, (v) => { if (v.id === input) ret = v.name })

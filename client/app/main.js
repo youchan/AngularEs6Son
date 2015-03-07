@@ -5,6 +5,8 @@ import BeanFactory from 'app/service/bean_factory';
 import ListController from 'app/controller/list_controller';
 import AddController from 'app/controller/add_controller';
 import EditController from 'app/controller/edit_controller';
+import BeansService from 'app/service/beans'
+import RegionsService from 'app/service/regions'
 
 // ここにひたすらAngularJSのコードを書いて行く
 var app = angular.module('Es6SonApp', ['ui.router']);
@@ -78,6 +80,8 @@ app.config(function($locationProvider, $httpProvider, $urlRouterProvider, $state
 
 app.filter('regionName', regionNameFilter)
 app.factory('bean', BeanFactory)
+app.service('beansService', BeansService)
+app.service('regionsService', RegionsService)
 app.controller('ListController', ListController)
 app.controller('AddController', AddController)
 app.controller('EditController', EditController)

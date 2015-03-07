@@ -6,7 +6,7 @@
   </ul>
 
   <h2>入荷変更</h2>
-  <form name="updateForm" novalidate ng-submit="edit.update()">
+  <form name="updateForm" novalidate ng-submit="edit.update(edit.bean.id)">
     <div class="form-group">
       <label for="brand">銘柄</label>
       <input type="text" class="form-control" name="brand" ng-model="edit.bean.brand" placeholder="例）キリマンジャロ" required>

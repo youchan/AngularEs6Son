@@ -1,6 +1,8 @@
+import { REGIONS_URL } from 'app/urls';
+
 export function regionNameFilter($http) {
   var region = [];
-  $http.get('http://localhost:8000/api/regions')
+  $http.get(REGIONS_URL)
     .success(function(data) {
       region = data;
     });

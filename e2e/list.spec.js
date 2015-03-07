@@ -17,5 +17,10 @@ describe('一覧ページ', ()=> {
       expect(firstBean.getText()).toContain('アフリカ・中東');
       expect(firstBean.element(by.tagName('img')).getAttribute('src')).toContain("/images/18.jpg");
     });
+
+    it('一覧のボタンが表示されること', ()=> {
+      expect(firstBean.element(by.css('.btn-primary')).getText()).toContain("編集");
+      expect(firstBean.element(by.css('.btn-danger')).getText()).toEqual("削除");
+    });
   });
 });

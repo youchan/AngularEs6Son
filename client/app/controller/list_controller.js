@@ -1,6 +1,6 @@
 import { BEANS_URL, REGIONS_URL } from 'app/urls';
 
-export class ListController {
+export default class ListController {
   constructor($http) {
     $http.get(BEANS_URL)
       .success((data) => this.beans = data)

@@ -1,10 +1,10 @@
 import angular from 'angular';
 import 'angular-ui-router';
-import { regionNameFilter } from 'app/filter/region_name';
-import { BeanFactory } from 'app/service/bean_factory';
-import { ListController } from 'app/controller/list_controller';
-import { AddController } from 'app/controller/add_controller';
-import { EditController } from 'app/controller/edit_controller';
+import regionNameFilter from 'app/filter/region_name';
+import BeanFactory from 'app/service/bean_factory';
+import ListController from 'app/controller/list_controller';
+import AddController from 'app/controller/add_controller';
+import EditController from 'app/controller/edit_controller';
 
 // ここにひたすらAngularJSのコードを書いて行く
 var app = angular.module('Es6SonApp', ['ui.router']);

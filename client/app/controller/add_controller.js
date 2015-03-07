@@ -1,6 +1,6 @@
 import { BEANS_URL, REGIONS_URL } from 'app/urls';
 
-export class AddController {
+export default class AddController {
   constructor($state, $http) {
     add.regions = []
     $http.get(REGIONS_URL)

@@ -1,6 +1,6 @@
 import { BEANS_URL, REGIONS_URL } from 'app/urls';
 
-export class EditController {
+export default class EditController {
   constructor($state, $stateParams, $http) {
     this.regions = []
     $http.get(REGIONS_URL)

@@ -1,6 +1,6 @@
 import { REGIONS_URL } from 'app/urls';
 
-export function regionNameFilter($http) {
+export default ($http) => {
   var region = [];
   $http.get(REGIONS_URL)
     .success((data) => region = data)

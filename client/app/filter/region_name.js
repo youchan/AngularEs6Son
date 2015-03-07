@@ -1,9 +1,9 @@
 export default (regionsService) => {
-  var region = [];
-  regionsService.list().success((data) => region = data)
+  var regionMap = new Map
+  regionsService.list().success((data) =>
+    angular.forEach(data, (v) => regionMap.set(v.id, v.name)))
+
   return (input) => {
-    var ret = ''
-    angular.forEach(region, (v) => { if (v.id === input) ret = v.name })
-    return ret
+    return regionMap.get(input)
   }
 }
